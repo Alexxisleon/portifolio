@@ -9,33 +9,24 @@ export const ThemeToggle = () => {
   return (
     <Button
       variant="ghost"
-      size="sm"
+      size="icon"
       onClick={toggleTheme}
-      className="relative overflow-hidden hover:bg-primary/10"
+      className="relative w-9 h-9 overflow-hidden rounded-md hover:bg-accent transition-colors"
+      aria-label="Alternar tema"
     >
       <motion.div
-        initial={false}
-        animate={{
-          scale: theme === "dark" ? 1 : 0,
-          rotate: theme === "dark" ? 0 : 180,
-        }}
-        transition={{ duration: 0.3, ease: "easeInOut" }}
+        key={theme}
+        initial={{ scale: 0, rotate: -180 }}
+        animate={{ scale: 1, rotate: 0 }}
+        transition={{ duration: 0.2, ease: "easeInOut" }}
         className="absolute inset-0 flex items-center justify-center"
       >
-        <Moon className="h-4 w-4" />
+        {theme === "dark" ? (
+          <Moon className="h-4 w-4" />
+        ) : (
+          <Sun className="h-4 w-4" />
+        )}
       </motion.div>
-      <motion.div
-        initial={false}
-        animate={{
-          scale: theme === "light" ? 1 : 0,
-          rotate: theme === "light" ? 0 : -180,
-        }}
-        transition={{ duration: 0.3, ease: "easeInOut" }}
-        className="absolute inset-0 flex items-center justify-center"
-      >
-        <Sun className="h-4 w-4" />
-      </motion.div>
-      <span className="sr-only">Alternar tema</span>
     </Button>
   );
 };

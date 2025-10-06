@@ -11,28 +11,29 @@ import {
   Zap,
   Code,
 } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext"; // ✅ Adicionei o import
 
 export const ProjectsSection = () => {
+  const { t } = useLanguage(); // ✅ Adicionei o hook
+
   const projects = [
     {
-      title: "Sistema de Gerenciamento de Rotas",
-      description:
-        "Sistema completo para automação de logística de entregas com interface moderna e funcionalidades avançadas de otimização de rotas.",
+      title: t("projects.routeSystem.title"), // ✅ Traduzido
+      description: t("projects.routeSystem.description"), // ✅ Traduzido
       technologies: ["Python", "SQL", "PyQt5", "Google Maps API"],
       features: [
-        { icon: Zap, text: "Automação de logística de entregas" },
-        { icon: Users, text: "Cadastro de entregadores" },
-        { icon: Route, text: "Cálculo de rotas otimizadas" },
-        { icon: MapPin, text: "Integração com Google Maps" },
+        { icon: Zap, text: t("projects.features.automation") }, // ✅ Traduzido
+        { icon: Users, text: t("projects.features.deliveryDrivers") }, // ✅ Traduzido
+        { icon: Route, text: t("projects.features.routeOptimization") }, // ✅ Traduzido
+        { icon: MapPin, text: t("projects.features.mapsIntegration") }, // ✅ Traduzido
       ],
       demoUrl: "#",
       codeUrl: "https://github.com/Alexxisleon",
       type: "featured",
     },
     {
-      title: "Desenvolvedor Freelancer",
-      description:
-        "Desenvolvimento de aplicações web modernas com foco em experiência do usuário e performance.",
+      title: t("projects.freelancer.title"), // ✅ Traduzido
+      description: t("projects.freelancer.description"), // ✅ Traduzido
       technologies: [
         "JavaScript",
         "TypeScript",
@@ -42,10 +43,10 @@ export const ProjectsSection = () => {
         "Prisma",
       ],
       features: [
-        { icon: Code, text: "Desenvolvimento de aplicações web" },
-        { icon: Zap, text: "Criação e integração de APIs REST" },
-        { icon: Route, text: "Modelagem de banco de dados" },
-        { icon: Users, text: "Interfaces reativas com React" },
+        { icon: Code, text: t("projects.features.webDevelopment") }, // ✅ Traduzido
+        { icon: Zap, text: t("projects.features.apiIntegration") }, // ✅ Traduzido
+        { icon: Route, text: t("projects.features.databaseModeling") }, // ✅ Traduzido
+        { icon: Users, text: t("projects.features.reactiveInterfaces") }, // ✅ Traduzido
       ],
       demoUrl: "#",
       codeUrl: "https://github.com/Alexxisleon",
@@ -67,12 +68,11 @@ export const ProjectsSection = () => {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-            Projetos
+            {t("projects.title")} {/* ✅ Traduzido */}
           </h2>
           <div className="w-24 h-1 bg-gradient-primary mx-auto mb-8"></div>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Conheça meu projeto destacado e veja como transformo ideias em
-            soluções reais
+            {t("projects.subtitle")} {/* ✅ Traduzido */}
           </p>
         </motion.div>
 
@@ -100,13 +100,15 @@ export const ProjectsSection = () => {
                       </div>
                       <h3 className="text-2xl font-bold text-foreground">
                         {project.type === "featured"
-                          ? "Sistema de Rotas"
-                          : "Desenvolvedor Web"}
+                          ? t("projects.visual.routeSystem") // ✅ Traduzido
+                          : t("projects.visual.webDeveloper")}{" "}
+                        {/* ✅ Traduzido */}
                       </h3>
                       <p className="text-muted-foreground">
                         {project.type === "featured"
-                          ? "Logística Inteligente"
-                          : "Freelancer Full Stack"}
+                          ? t("projects.visual.smartLogistics") // ✅ Traduzido
+                          : t("projects.visual.fullStack")}{" "}
+                        {/* ✅ Traduzido */}
                       </p>
                     </div>
                     <div className="absolute inset-0 bg-gradient-to-r from-primary/10 to-accent/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
@@ -126,7 +128,7 @@ export const ProjectsSection = () => {
                     {/* Technologies */}
                     <div>
                       <h4 className="text-sm font-semibold text-foreground mb-3 uppercase tracking-wider">
-                        Tecnologias
+                        {t("projects.technologies")} {/* ✅ Traduzido */}
                       </h4>
                       <div className="flex flex-wrap gap-2">
                         {project.technologies.map((tech, index) => (
@@ -144,7 +146,7 @@ export const ProjectsSection = () => {
                     {/* Features */}
                     <div>
                       <h4 className="text-sm font-semibold text-foreground mb-3 uppercase tracking-wider">
-                        Funcionalidades
+                        {t("projects.features")} {/* ✅ Traduzido */}
                       </h4>
                       <div className="space-y-2">
                         {project.features.map((feature, index) => (
@@ -170,7 +172,7 @@ export const ProjectsSection = () => {
                           rel="noopener noreferrer"
                         >
                           <ExternalLink className="w-4 h-4" />
-                          Ver Demo
+                          {t("projects.viewDemo")} {/* ✅ Traduzido */}
                         </a>
                       </Button>
                       <Button variant="glass" size="sm" asChild>
@@ -180,7 +182,7 @@ export const ProjectsSection = () => {
                           rel="noopener noreferrer"
                         >
                           <Github className="w-4 h-4" />
-                          Código
+                          {t("projects.viewCode")} {/* ✅ Traduzido */}
                         </a>
                       </Button>
                     </div>
@@ -200,7 +202,7 @@ export const ProjectsSection = () => {
           className="text-center mt-12"
         >
           <p className="text-muted-foreground mb-4">
-            Mais projetos em desenvolvimento...
+            {t("projects.moreProjects")} {/* ✅ Traduzido */}
           </p>
           <Button variant="outline" asChild>
             <a
@@ -209,7 +211,7 @@ export const ProjectsSection = () => {
               rel="noopener noreferrer"
             >
               <Github className="w-4 h-4" />
-              Ver no GitHub
+              {t("projects.viewGitHub")} {/* ✅ Traduzido */}
             </a>
           </Button>
         </motion.div>

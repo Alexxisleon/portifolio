@@ -35,12 +35,12 @@ export const ThemeProvider = ({ children }: ThemeProviderProps) => {
     localStorage.setItem("theme", theme);
     const root = window.document.documentElement;
 
-    root.classList.remove("light", "dark");
+    root.classList.remove("dark", "light");
     root.classList.add(theme);
   }, [theme]);
 
   const toggleTheme = () => {
-    setTheme((prev) => (prev === "dark" ? "light" : "dark"));
+    setTheme((prev) => (prev === "light" ? "dark" : "light"));
   };
 
   return (

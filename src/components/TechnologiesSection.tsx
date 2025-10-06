@@ -7,14 +7,16 @@ import {
   Globe,
   Server,
   Smartphone,
-  GitBranch,
   Monitor,
 } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext"; // ✅ Adicionei o import
 
 export const TechnologiesSection = () => {
+  const { t } = useLanguage(); // ✅ Adicionei o hook
+
   const categories = [
     {
-      title: "Linguagens",
+      title: t("technologies.categories.languages"), // ✅ Traduzido
       icon: Code,
       items: [
         "C",
@@ -30,19 +32,19 @@ export const TechnologiesSection = () => {
       color: "text-blue-400",
     },
     {
-      title: "Frameworks & Bibliotecas",
+      title: t("technologies.categories.frameworks"), // ✅ Traduzido
       icon: Globe,
       items: ["React", "Next.js", "Node.js", "TailwindCSS", "Vite"],
       color: "text-green-400",
     },
     {
-      title: "Banco de Dados",
+      title: t("technologies.categories.databases"), // ✅ Traduzido
       icon: Database,
       items: ["PostgreSQL", "Firebase"],
       color: "text-purple-400",
     },
     {
-      title: "Ferramentas",
+      title: t("technologies.categories.tools"), // ✅ Traduzido
       icon: Wrench,
       items: ["Git", "GitHub", "Windows", "VS Code", "PyCharm"],
       color: "text-orange-400",
@@ -81,11 +83,11 @@ export const TechnologiesSection = () => {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-            Tecnologias & Ferramentas
+            {t("technologies.title")} {/* ✅ Traduzido */}
           </h2>
           <div className="w-24 h-1 bg-gradient-primary mx-auto mb-8"></div>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Tecnologias que domino para criar soluções completas e modernas
+            {t("technologies.subtitle")} {/* ✅ Traduzido */}
           </p>
         </motion.div>
 
@@ -137,28 +139,38 @@ export const TechnologiesSection = () => {
         >
           <div className="max-w-4xl mx-auto">
             <h3 className="text-2xl font-bold text-foreground mb-6">
-              Especialidades
+              {t("technologies.specialties.title")} {/* ✅ Traduzido */}
             </h3>
             <div className="grid md:grid-cols-3 gap-6">
               <div className="flex flex-col items-center space-y-3 p-6 rounded-lg bg-gradient-card/50">
                 <Server className="w-8 h-8 text-primary" />
-                <h4 className="font-semibold text-foreground">Backend</h4>
+                <h4 className="font-semibold text-foreground">
+                  {t("technologies.specialties.backend")} {/* ✅ Traduzido */}
+                </h4>
                 <p className="text-sm text-muted-foreground text-center">
-                  APIs robustas e escaláveis
+                  {t("technologies.specialties.backendDesc")}{" "}
+                  {/* ✅ Traduzido */}
                 </p>
               </div>
               <div className="flex flex-col items-center space-y-3 p-6 rounded-lg bg-gradient-card/50">
                 <Monitor className="w-8 h-8 text-accent" />
-                <h4 className="font-semibold text-foreground">Frontend</h4>
+                <h4 className="font-semibold text-foreground">
+                  {t("technologies.specialties.frontend")} {/* ✅ Traduzido */}
+                </h4>
                 <p className="text-sm text-muted-foreground text-center">
-                  Interfaces modernas e responsivas
+                  {t("technologies.specialties.frontendDesc")}{" "}
+                  {/* ✅ Traduzido */}
                 </p>
               </div>
               <div className="flex flex-col items-center space-y-3 p-6 rounded-lg bg-gradient-card/50">
                 <Smartphone className="w-8 h-8 text-green-400" />
-                <h4 className="font-semibold text-foreground">Mobile First</h4>
+                <h4 className="font-semibold text-foreground">
+                  {t("technologies.specialties.mobileFirst")}{" "}
+                  {/* ✅ Traduzido */}
+                </h4>
                 <p className="text-sm text-muted-foreground text-center">
-                  Design responsivo em todos os dispositivos
+                  {t("technologies.specialties.mobileFirstDesc")}{" "}
+                  {/* ✅ Traduzido */}
                 </p>
               </div>
             </div>

@@ -9,36 +9,39 @@ import {
   MessageCircle,
   ExternalLink,
 } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext"; // ✅ Adicionei o import
 
 export const ContactSection = () => {
+  const { t } = useLanguage(); // ✅ Adicionei o hook
+
   const contacts = [
     {
       icon: Mail,
-      title: "Email",
+      title: t("contact.email.title"), // ✅ Traduzido
       value: "alelion001@gmail.com",
       href: "mailto:alelion001@gmail.com",
-      description: "Para propostas profissionais",
+      description: t("contact.email.description"), // ✅ Traduzido
     },
     {
       icon: Instagram,
-      title: "Instagram",
+      title: t("contact.instagram.title"), // ✅ Traduzido
       value: "@Akz7ine",
       href: "https://instagram.com/Akz7ine",
-      description: "Acompanhe meu trabalho",
+      description: t("contact.instagram.description"), // ✅ Traduzido
     },
     {
       icon: Linkedin,
-      title: "LinkedIn",
-      value: "Cristian Leon",
+      title: t("contact.linkedin.title"), // ✅ Traduzido
+      value: t("contact.linkedin.value"), // ✅ Traduzido
       href: "https://linkedin.com/in/cristian-leon-b63659384",
-      description: "Conecte-se comigo",
+      description: t("contact.linkedin.description"), // ✅ Traduzido
     },
     {
       icon: Github,
-      title: "GitHub",
+      title: t("contact.github.title"), // ✅ Traduzido
       value: "@Alexxisleon",
       href: "https://github.com/Alexxisleon",
-      description: "Veja meus projetos",
+      description: t("contact.github.description"), // ✅ Traduzido
     },
   ];
 
@@ -77,12 +80,11 @@ export const ContactSection = () => {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-            Vamos Conversar?
+            {t("contact.title")} {/* ✅ Traduzido */}
           </h2>
           <div className="w-24 h-1 bg-gradient-primary mx-auto mb-8"></div>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Estou sempre aberto a novas oportunidades e projetos interessantes.
-            Entre em contato e vamos criar algo incrível juntos!
+            {t("contact.subtitle")} {/* ✅ Traduzido */}
           </p>
         </motion.div>
 
@@ -134,16 +136,15 @@ export const ContactSection = () => {
           <div className="bg-gradient-card p-8 rounded-2xl border border-primary/20 max-w-2xl mx-auto">
             <MessageCircle className="w-12 h-12 text-primary mx-auto mb-4" />
             <h3 className="text-2xl font-bold text-foreground mb-4">
-              Pronto para colaborar?
+              {t("contact.cta.title")} {/* ✅ Traduzido */}
             </h3>
             <p className="text-muted-foreground mb-6">
-              Tenho experiência em projetos diversos e estou sempre em busca de
-              novos desafios. Vamos conversar sobre seu próximo projeto!
+              {t("contact.cta.description")} {/* ✅ Traduzido */}
             </p>
             <Button variant="hero" size="lg" asChild>
               <a href="mailto:alelion001@gmail.com">
                 <Mail className="w-5 h-5" />
-                Enviar Email
+                {t("contact.cta.button")} {/* ✅ Traduzido */}
               </a>
             </Button>
           </div>

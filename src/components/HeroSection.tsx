@@ -5,8 +5,11 @@ import { TypingEffect } from "./TypingEffect";
 import { ThreeScene } from "./ThreeScene";
 import { ArrowDown, Github, Mail } from "lucide-react";
 import profilePhoto from "@/assets/profile-photo.jpg";
+import { useLanguage } from "@/contexts/LanguageContext"; // ✅ Adicionei o import
 
 export const HeroSection = () => {
+  const { t } = useLanguage(); // ✅ Adicionei o hook
+
   const scrollToSection = (sectionId: string) => {
     document.getElementById(sectionId)?.scrollIntoView({ behavior: "smooth" });
   };
@@ -41,7 +44,7 @@ export const HeroSection = () => {
               <Avatar className="w-32 h-32 md:w-40 md:h-40 ring-4 ring-primary/30 ring-offset-4 ring-offset-background">
                 <AvatarImage
                   src={profilePhoto}
-                  alt="Cristian Alex"
+                  alt={t("hero.alt")} // ✅ Traduzido
                   className="object-cover"
                 />
                 <AvatarFallback className="text-2xl font-bold bg-gradient-primary text-primary-foreground">
@@ -71,9 +74,9 @@ export const HeroSection = () => {
           >
             <TypingEffect
               texts={[
-                "Desenvolvedor Full Stack",
-                "Focado em Front-End",
-                "Criador de Experiências",
+                t("hero.typing1"), // ✅ Traduzido
+                t("hero.typing2"), // ✅ Traduzido
+                t("hero.typing3"), // ✅ Traduzido
               ]}
               speed={80}
               deleteSpeed={40}
@@ -88,9 +91,7 @@ export const HeroSection = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.9, duration: 0.8 }}
           >
-            Sou um desenvolvedor full stack apaixonado por criar soluções
-            criativas e funcionais, com foco em front-end e experiências
-            interativas.
+            {t("hero.description")} {/* ✅ Traduzido */}
           </motion.p>
 
           {/* Action buttons */}
@@ -106,7 +107,7 @@ export const HeroSection = () => {
               onClick={() => scrollToSection("projects")}
               className="min-w-[200px]"
             >
-              Ver Projetos
+              {t("hero.button.projects")} {/* ✅ Traduzido */}
             </Button>
             <Button
               variant="glass"
@@ -115,7 +116,7 @@ export const HeroSection = () => {
               className="min-w-[200px]"
             >
               <Mail className="w-5 h-5" />
-              Entrar em Contato
+              {t("hero.button.contact")} {/* ✅ Traduzido */}
             </Button>
           </motion.div>
 

@@ -2,24 +2,27 @@ import { motion } from "framer-motion";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Languages } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext"; // ✅ Adicionei o import
 
 export const LanguagesSection = () => {
+  const { t } = useLanguage(); // ✅ Adicionei o hook
+
   const languages = [
     {
-      name: "Português",
-      level: "Nativo",
+      name: t("languages.portuguese.name"), // ✅ Traduzido
+      level: t("languages.portuguese.level"), // ✅ Traduzido
       proficiency: 100,
       flag: "🇧🇷",
     },
     {
-      name: "Espanhol",
-      level: "C1 (Avançado)",
+      name: t("languages.spanish.name"), // ✅ Traduzido
+      level: t("languages.spanish.level"), // ✅ Traduzido
       proficiency: 85,
       flag: "🇪🇸",
     },
     {
-      name: "Inglês",
-      level: "A1 (Básico)",
+      name: t("languages.english.name"), // ✅ Traduzido
+      level: t("languages.english.level"), // ✅ Traduzido
       proficiency: 30,
       flag: "🇺🇸",
     },
@@ -46,7 +49,7 @@ export const LanguagesSection = () => {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-            Idiomas
+            {t("languages.title")} {/* ✅ Traduzido */}
           </h2>
           <div className="w-24 h-1 bg-gradient-primary mx-auto mb-8"></div>
         </motion.div>
@@ -91,7 +94,8 @@ export const LanguagesSection = () => {
                       />
                     </div>
                     <p className="text-sm text-muted-foreground">
-                      {language.proficiency}% de proficiência
+                      {language.proficiency}% {t("languages.proficiency")}{" "}
+                      {/* ✅ Traduzido */}
                     </p>
                   </div>
                 </div>

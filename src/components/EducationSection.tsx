@@ -2,16 +2,18 @@ import { motion } from "framer-motion";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { GraduationCap, Calendar, MapPin } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext"; // ✅ Adicionei o import
 
 export const EducationSection = () => {
+  const { t } = useLanguage(); // ✅ Adicionei o hook
+
   const education = {
-    degree: "Análise e Desenvolvimento de Sistemas",
-    institution: "Universidade Tuiuti do Paraná",
-    location: "Curitiba, PR",
-    period: "2024 - 2026",
-    status: "Em andamento",
-    description:
-      "Curso superior focado em desenvolvimento de software, análise de sistemas, banco de dados e metodologias ágeis.",
+    degree: t("education.degree"), // ✅ Traduzido
+    institution: t("education.institution"), // ✅ Traduzido
+    location: t("education.location"), // ✅ Traduzido
+    period: t("education.period"), // ✅ Traduzido
+    status: t("education.status"), // ✅ Traduzido
+    description: t("education.description"), // ✅ Traduzido
   };
 
   return (
@@ -25,7 +27,7 @@ export const EducationSection = () => {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-            Formação Acadêmica
+            {t("education.title")} {/* ✅ Traduzido */}
           </h2>
           <div className="w-24 h-1 bg-gradient-primary mx-auto mb-8"></div>
         </motion.div>

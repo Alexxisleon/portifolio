@@ -3,34 +3,35 @@ import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Calendar, Clock, ArrowRight } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext"; // ✅ Adicionei o import
 
 export const BlogSection = () => {
+  const { t } = useLanguage(); // ✅ Adicionei o hook
+
   const blogPosts = [
     {
-      title: "Como criar interfaces modernas com React e TailwindCSS",
-      description:
-        "Explorando as melhores práticas para desenvolver UIs responsivas e acessíveis.",
+      title: t("blog.post1.title"), // ✅ Traduzido
+      description: t("blog.post1.description"), // ✅ Traduzido
       date: "2024-01-15",
-      readTime: "5 min",
-      category: "Frontend",
-      status: "Em breve",
+      readTime: t("blog.readTime.short"), // ✅ Traduzido
+      category: t("blog.categories.frontend"), // ✅ Traduzido
+      status: t("blog.status.comingSoon"), // ✅ Traduzido
     },
     {
-      title: "Otimização de Performance em Aplicações React",
-      description:
-        "Técnicas avançadas para melhorar a performance e experiência do usuário.",
+      title: t("blog.post2.title"), // ✅ Traduzido
+      description: t("blog.post2.description"), // ✅ Traduzido
       date: "2024-02-01",
-      readTime: "8 min",
-      category: "Performance",
-      status: "Em breve",
+      readTime: t("blog.readTime.medium"), // ✅ Traduzido
+      category: t("blog.categories.performance"), // ✅ Traduzido
+      status: t("blog.status.comingSoon"), // ✅ Traduzido
     },
     {
-      title: "Integração de APIs REST com Node.js e PostgreSQL",
-      description: "Guia completo para construir APIs robustas e escaláveis.",
+      title: t("blog.post3.title"), // ✅ Traduzido
+      description: t("blog.post3.description"), // ✅ Traduzido
       date: "2024-02-15",
-      readTime: "12 min",
-      category: "Backend",
-      status: "Em breve",
+      readTime: t("blog.readTime.long"), // ✅ Traduzido
+      category: t("blog.categories.backend"), // ✅ Traduzido
+      status: t("blog.status.comingSoon"), // ✅ Traduzido
     },
   ];
 
@@ -48,12 +49,11 @@ export const BlogSection = () => {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-            Blog & Artigos
+            {t("blog.title")} {/* ✅ Traduzido */}
           </h2>
           <div className="w-24 h-1 bg-gradient-primary mx-auto mb-8"></div>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Compartilhando conhecimento e experiências sobre desenvolvimento web
-            e tecnologia
+            {t("blog.subtitle")} {/* ✅ Traduzido */}
           </p>
         </motion.div>
 
@@ -108,7 +108,7 @@ export const BlogSection = () => {
                     className="w-full justify-between group-hover:bg-primary/10 group-hover:text-primary transition-colors"
                     disabled
                   >
-                    Ler Artigo
+                    {t("blog.readArticle")} {/* ✅ Traduzido */}
                     <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                   </Button>
                 </div>
@@ -125,10 +125,10 @@ export const BlogSection = () => {
           className="text-center mt-12"
         >
           <p className="text-muted-foreground mb-4">
-            Novos artigos em desenvolvimento...
+            {t("blog.developmentMessage")} {/* ✅ Traduzido */}
           </p>
           <Button variant="outline" disabled>
-            Ver Todos os Artigos
+            {t("blog.viewAllArticles")} {/* ✅ Traduzido */}
           </Button>
         </motion.div>
       </div>

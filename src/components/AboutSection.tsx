@@ -1,23 +1,26 @@
 import { motion } from "framer-motion";
 import { Card } from "@/components/ui/card";
 import { Code, Lightbulb, Rocket } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext"; // ✅ Adicionei o import
 
 export const AboutSection = () => {
+  const { t } = useLanguage(); // ✅ Adicionei o hook
+
   const highlights = [
     {
       icon: Code,
-      title: "Desenvolvimento Full Stack",
-      description: "Experiência com tecnologias frontend e backend",
+      title: t("about.highlights.fullstack"), // ✅ Traduzido
+      description: t("about.highlights.fullstackDesc"), // ✅ Traduzido
     },
     {
       icon: Lightbulb,
-      title: "Foco em Front-End",
-      description: "Especialização em interfaces modernas e responsivas",
+      title: t("about.highlights.frontend"), // ✅ Traduzido
+      description: t("about.highlights.frontendDesc"), // ✅ Traduzido
     },
     {
       icon: Rocket,
-      title: "Interfaces Modernas",
-      description: "Criação de experiências interativas e intuitivas",
+      title: t("about.highlights.interfaces"), // ✅ Traduzido
+      description: t("about.highlights.interfacesDesc"), // ✅ Traduzido
     },
   ];
 
@@ -32,7 +35,7 @@ export const AboutSection = () => {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-            Sobre Mim
+            {t("about.title")} {/* ✅ Traduzido */}
           </h2>
           <div className="w-24 h-1 bg-gradient-primary mx-auto mb-8"></div>
         </motion.div>
@@ -47,21 +50,15 @@ export const AboutSection = () => {
             className="space-y-6"
           >
             <p className="text-lg text-muted-foreground leading-relaxed">
-              Desenvolvedor Full Stack Júnior focado em Front-End. Estudante de
-              Análise e Desenvolvimento de Sistemas (UTP). Experiência com
-              Python, JavaScript, React e PostgreSQL.
+              {t("about.description1")} {/* ✅ Traduzido */}
             </p>
 
             <p className="text-lg text-muted-foreground leading-relaxed">
-              Apaixonado por criar interfaces modernas e experiências
-              interativas que combinam funcionalidade com design elegante. Busco
-              constantemente aprimorar minhas habilidades e explorar novas
-              tecnologias.
+              {t("about.description2")} {/* ✅ Traduzido */}
             </p>
 
             <p className="text-lg text-muted-foreground leading-relaxed">
-              Minha abordagem é voltada para a criação de soluções inovadoras,
-              com foco na qualidade do código e na experiência do usuário final.
+              {t("about.description3")} {/* ✅ Traduzido */}
             </p>
           </motion.div>
 

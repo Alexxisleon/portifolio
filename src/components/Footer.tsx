@@ -1,7 +1,10 @@
 import { motion } from "framer-motion";
 import { Heart, Code } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext"; // ✅ Adicionei o import
 
 export const Footer = () => {
+  const { t } = useLanguage(); // ✅ Adicionei o hook
+
   return (
     <footer className="bg-card/50 border-t border-border/20 py-8">
       <div className="container mx-auto px-6">
@@ -13,20 +16,20 @@ export const Footer = () => {
           className="text-center space-y-4"
         >
           <div className="flex items-center justify-center space-x-2 text-muted-foreground">
-            <span>Feito com</span>
+            <span>{t("footer.madeWith")}</span> {/* ✅ Traduzido */}
             <Heart className="w-4 h-4 text-red-500 fill-current" />
-            <span>e</span>
+            <span>{t("footer.and")}</span> {/* ✅ Traduzido */}
             <Code className="w-4 h-4 text-primary" />
-            <span>por Cristian Alex</span>
+            <span>{t("footer.by")}</span> {/* ✅ Traduzido */}
           </div>
 
           <div className="text-sm text-muted-foreground/80">
-            © {new Date().getFullYear()} Cristian Alex. Todos os direitos
-            reservados.
+            © {new Date().getFullYear()} Cristian Alex. {t("footer.rights")}{" "}
+            {/* ✅ Traduzido */}
           </div>
 
           <div className="text-xs text-muted-foreground/60">
-            Desenvolvido com React + TypeScript + TailwindCSS + Framer Motion
+            {t("footer.techStack")} {/* ✅ Traduzido */}
           </div>
         </motion.div>
       </div>

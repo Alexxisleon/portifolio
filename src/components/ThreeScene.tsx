@@ -3,6 +3,7 @@ import { Canvas, useFrame } from "@react-three/fiber";
 import { Points, PointMaterial } from "@react-three/drei";
 import * as random from "maath/random";
 
+
 function Stars() {
   const ref = useRef<any>();
   const sphere = random.inSphere(new Float32Array(5000), {
