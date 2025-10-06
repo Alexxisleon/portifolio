@@ -4,7 +4,7 @@ import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 import { TypingEffect } from "./TypingEffect";
 import { ThreeScene } from "./ThreeScene";
 import { ArrowDown, Github, Mail } from "lucide-react";
-import profilePhoto from "@/assets/profile-photo.jpg";
+import profilephoto from "@/assets/foto-do-bonitao.jpg"
 import { useLanguage } from "@/contexts/LanguageContext"; // ✅ Adicionei o import
 
 export const HeroSection = () => {
@@ -43,7 +43,7 @@ export const HeroSection = () => {
             <div className="relative">
               <Avatar className="w-32 h-32 md:w-40 md:h-40 ring-4 ring-primary/30 ring-offset-4 ring-offset-background">
                 <AvatarImage
-                  src={profilePhoto}
+                  src={profilephoto}
                   alt={t("hero.alt")} // ✅ Traduzido
                   className="object-cover"
                 />
