@@ -4,7 +4,7 @@ import { Points, PointMaterial } from "@react-three/drei";
 import * as random from "maath/random";
 
 function Stars() {
-  const ref = useRef<any>();
+  const ref = useRef<React.ElementRef<typeof Points>>(null);
   const sphere = random.inSphere(new Float32Array(5000), {
     radius: 1.2,
   }) as Float32Array;
